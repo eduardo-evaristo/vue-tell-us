@@ -7,6 +7,7 @@ export async function postVideo() {
 }
 
 export async function getAllRecommendations() {
-  const recommendations = await api.get<Recommendation[]>('/recommendations')
-  return recommendations
+  const res = await api.get<Recommendation[]>('/recommendations')
+  const data = res.data
+  return data
 }
