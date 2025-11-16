@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { onMounted, useTemplateRef } from 'vue'
-import { Send } from 'lucide-vue-next'
+import { Forward } from 'lucide-vue-next'
 
 // This is a useRef()
-const inputElement = useTemplateRef('inputElement')
+const inputElement = useTemplateRef<HTMLInputElement>('inputElement')
 
 // This is equivalent to a useEffect with []
 onMounted(() => {
@@ -26,7 +26,7 @@ onMounted(() => {
         ref="inputElement"
       />
       <button class="hover:opacity-50" @click="$emit('changeStep')">
-        <span><Send /></span>
+        <span><Forward /></span>
       </button>
     </div>
   </div>

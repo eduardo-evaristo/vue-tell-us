@@ -1,5 +1,9 @@
 <script setup lang="ts">
+import YoutubePlayer from '@/components/YoutubePlayer.vue'
 import { Send } from 'lucide-vue-next'
+import { ref } from 'vue'
+
+const reason = ref<string>('sadasdas')
 </script>
 
 <template>
@@ -10,14 +14,17 @@ import { Send } from 'lucide-vue-next'
 
     <div class="bg-white w-100 rounded-md flex justify-between p-4 gap-2">
       <input
+        v-model="reason"
         type="text"
-        placeholder="Paste your link..."
+        placeholder="Tell us about it..."
         class="outline-none w-full text-ellipsis"
-        id="send-video"
+        id="reason"
       />
+
       <button class="hover:opacity-50">
         <span><Send /></span>
       </button>
     </div>
+    <YoutubePlayer src="8S9wH37Tg8g" />
   </div>
 </template>

@@ -1,4 +1,5 @@
-import App from '@/App.vue'
+import HomeView from '@/views/HomeView.vue'
+import LoginView from '@/views/LoginView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -7,9 +8,15 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: App,
+      component: HomeView,
     },
-    // {
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginView,
+    },
+    { path: '/feed', name: 'feed', component: () => import('../views/FeedView.vue') },
+    //
     //   path: '/about',
     //   name: 'about',
     //   // route level code-splitting
