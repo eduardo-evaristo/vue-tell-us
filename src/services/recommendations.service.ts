@@ -1,9 +1,16 @@
 import api from '@/lib/axiosClient'
 import type { Recommendation } from '@/models/models'
 
-export async function postVideo() {
-  // const user =
-  await api.post('/recommendations', {})
+export async function postRecommendation({
+  videoId,
+  note,
+}: {
+  videoId: string
+  note: string | null
+}) {
+  const res = await api.post<Recommendation>('/recommendations', { videoId, note })
+  const data = res.data
+  return data
 }
 
 export async function getAllRecommendations() {
