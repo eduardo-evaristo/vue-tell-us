@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { login } from '@/services/auth.service'
 import { ref } from 'vue'
+import { useMe } from '@/hooks/useUser'
 
 const email = ref<string>('')
 const password = ref<string>('')
+const { user } = useMe()
 
 function handleLogin() {
   login(email.value, password.value)
@@ -18,6 +20,7 @@ function handleLogin() {
       <label for="password" class="text-white">Password</label>
       <input type="password" placeholder="Enter your password" id="password" v-model="password" />
       <button type="submit" class="text-black bg-white">Sign in</button>
+      <div>{{ user?.username }}</div>
     </form>
   </div>
 </template>

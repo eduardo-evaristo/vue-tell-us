@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import YoutubePlayer from '@/components/YoutubePlayer.vue'
 import { Send } from 'lucide-vue-next'
-import { ref } from 'vue'
 
-const reason = ref<string>('sadasdas')
+const model = defineModel<string>()
+defineEmits(['submitRecommendation'])
 </script>
 
 <template>
@@ -14,17 +13,16 @@ const reason = ref<string>('sadasdas')
 
     <div class="bg-white w-100 rounded-md flex justify-between p-4 gap-2">
       <input
-        v-model="reason"
+        v-model="model"
         type="text"
         placeholder="Tell us about it..."
         class="outline-none w-full text-ellipsis"
         id="reason"
       />
 
-      <button class="hover:opacity-50">
+      <button class="hover:opacity-50" @click="$emit('submitRecommendation')">
         <span><Send /></span>
       </button>
     </div>
-    <YoutubePlayer src="8S9wH37Tg8g" />
   </div>
 </template>

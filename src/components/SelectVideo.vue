@@ -2,6 +2,11 @@
 import { onMounted, useTemplateRef } from 'vue'
 import { Forward } from 'lucide-vue-next'
 
+const model = defineModel<string>()
+
+// declare emits so template $emit typings are correct
+defineEmits(['changeStep'])
+
 // This is a useRef()
 const inputElement = useTemplateRef<HTMLInputElement>('inputElement')
 
@@ -24,6 +29,7 @@ onMounted(() => {
         class="outline-none w-full text-ellipsis"
         id="send-video"
         ref="inputElement"
+        v-model="model"
       />
       <button class="hover:opacity-50" @click="$emit('changeStep')">
         <span><Forward /></span>
